@@ -5,9 +5,12 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Usuarios")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "userType", discriminatorType = DiscriminatorType.STRING)
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -31,11 +34,11 @@ public class Usuario implements Serializable {
     private String endereco;
 
     @Column(nullable = false)
-    private LocalDate dataCadastro;
+    private LocalDateTime dataCadastro;
 
     public Usuario(){}
 
-    public Usuario(Long id, String nome, String email, LocalDate dataNasc, String tel, String endereco, LocalDate dataCadastro) {
+    public Usuario(Long id, String nome, String email, LocalDate dataNasc, String tel, String endereco, LocalDateTime dataCadastro) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -45,11 +48,11 @@ public class Usuario implements Serializable {
         this.dataCadastro = dataCadastro;
     }
 
-    public LocalDate getDataCadastro() {
+    public LocalDateTime getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(LocalDate dataCadastro) {
+    public void setDataCadastro(LocalDateTime dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
