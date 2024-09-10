@@ -13,14 +13,20 @@ public class Aluno extends Usuario implements Serializable {
     @Column
     private LocalDate dataMatricula;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "treinador_id")
     private Treinador treinador;
+
+    @ManyToOne
+    @JoinColumn(name = "treino_id")
+    private Treino treino;
 
     public Aluno() {
     }
 
-    public Aluno(Long id, String nome, String email, LocalDate dataNasc, String tel, String endereco, LocalDateTime dataCadastro, LocalDate dataMatricula, Treinador treinador) {
+    public Aluno(Long id, String nome, String email, LocalDate dataNasc, String tel, String endereco, LocalDateTime dataCadastro, LocalDate dataMatricula, Treinador treinador, Treino treino) {
         super(id, nome, email, dataNasc, tel, endereco, dataCadastro);
+        this.treino = treino;
         this.dataMatricula = dataMatricula;
         this.treinador = treinador;
     }

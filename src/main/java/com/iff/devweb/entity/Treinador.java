@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @DiscriminatorValue("2")
@@ -19,14 +20,14 @@ public class Treinador extends Usuario implements Serializable {
     @Column
     private LocalDate dataContratacao;
 
-    @OneToOne(mappedBy = "treinador")
-    private Aluno aluno;
+    @OneToMany(mappedBy = "treinador")
+    private List<Aluno> aluno;
 
     public Treinador() {
 
     }
 
-    public Treinador(Long id, String nome, String email, LocalDate dataNasc, String tel, String endereco, LocalDateTime dataCadastro, String especialidade, String registroProf, LocalDate dataContratacao, Aluno aluno) {
+    public Treinador(Long id, String nome, String email, LocalDate dataNasc, String tel, String endereco, LocalDateTime dataCadastro, String especialidade, String registroProf, LocalDate dataContratacao, List<Aluno> aluno) {
         super(id, nome, email, dataNasc, tel, endereco, dataCadastro);
         this.especialidade = especialidade;
         this.registroProf = registroProf;
@@ -58,11 +59,11 @@ public class Treinador extends Usuario implements Serializable {
         this.dataContratacao = dataContratacao;
     }
 
-    public Aluno getAluno() {
+    public List<Aluno> getAluno() {
         return aluno;
     }
 
-    public void setAluno(Aluno aluno) {
+    public void setAluno(List<Aluno> aluno) {
         this.aluno = aluno;
     }
 }
