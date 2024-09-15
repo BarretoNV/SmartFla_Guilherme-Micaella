@@ -1,6 +1,9 @@
 package com.iff.devweb.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -16,13 +19,16 @@ public class Treino implements Serializable {
     private Long id;
 
     @Column(nullable = false)
+    @Pattern(regexp = "^[\\p{L}\\p{N}\\p{P}\\p{Zs}\\p{M}]{1,50}$", message = "Caracteres inválidos ou limite excedido!")
     private String nomeTreino;
 
     @Column(nullable = false)
+    @Pattern(regexp = "^[\\p{L}\\p{N}\\p{P}\\p{Zs}\\p{M}]{1,500}$", message = "Caracteres inválidos ou limite excedido!")
     private String descricao;
 
     @Column(nullable = false)
-    private Integer duracao;
+    @Pattern(regexp = "^(0[0-7]|08):([0-5][0-9])$", message = "O limite máximo é de 8 horas")
+    private String duracao;
 
     @Column(nullable = false)
     private LocalDate data;
@@ -31,18 +37,21 @@ public class Treino implements Serializable {
     private LocalDate horario;
 
     @Column(nullable = false)
-    private String tipoTreino;
+    private CdTipoTreinoEnum tipoTreino;
 
     @Column(nullable = false)
-    private String nivelDificuldade;
+    private CdNivelDificuldadeEnum nivelDificuldade;
 
     @Column(nullable = false)
+    @Pattern(regexp = "^[\\p{L}\\p{N}\\p{P}\\p{Zs}\\p{M}]{1,500}$", message = "Caracteres inválidos ou limite excedido!")
     private String observacoes;
 
     @Column(nullable = false)
+    @Pattern(regexp = "^[\\p{L}\\p{N}\\p{P}\\p{Zs}\\p{M}]{1,500}$", message = "Caracteres inválidos ou limite excedido!")
     private String feedbackTreinador;
 
     @Column(nullable = false)
+    @Pattern(regexp = "^[\\p{L}\\p{N}\\p{P}\\p{Zs}\\p{M}]{1,500}$", message = "Caracteres inválidos ou limite excedido!")
     private String feedbackAluno;
 
     @OneToMany(mappedBy = "treino")
@@ -50,7 +59,7 @@ public class Treino implements Serializable {
 
     public Treino () {}
 
-    public Treino(Long id, String nomeTreino, String descricao, Integer duracao, LocalDate data, LocalDate horario, String tipoTreino, String nivelDificuldade, String observacoes, String feedbackTreinador, String feedbackAluno, List<Aluno> alunos) {
+    public Treino(Long id, String nomeTreino, String descricao, String duracao, LocalDate data, LocalDate horario, CdTipoTreinoEnum tipoTreino, CdNivelDificuldadeEnum nivelDificuldade, String observacoes, String feedbackTreinador, String feedbackAluno, List<Aluno> alunos) {
         this.id = id;
         this.nomeTreino = nomeTreino;
         this.descricao = descricao;
@@ -89,11 +98,11 @@ public class Treino implements Serializable {
         this.descricao = descricao;
     }
 
-    public Integer getDuracao() {
+    public String getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(Integer duracao) {
+    public void setDuracao(String duracao) {
         this.duracao = duracao;
     }
 
@@ -113,19 +122,19 @@ public class Treino implements Serializable {
         this.horario = horario;
     }
 
-    public String getTipoTreino() {
+    public CdTipoTreinoEnum getTipoTreino() {
         return tipoTreino;
     }
 
-    public void setTipoTreino(String tipoTreino) {
+    public void setTipoTreino(CdTipoTreinoEnum tipoTreino) {
         this.tipoTreino = tipoTreino;
     }
 
-    public String getNivelDificuldade() {
+    public CdNivelDificuldadeEnum getNivelDificuldade() {
         return nivelDificuldade;
     }
 
-    public void setNivelDificuldade(String nivelDificuldade) {
+    public void setNivelDificuldade(CdNivelDificuldadeEnum nivelDificuldade) {
         this.nivelDificuldade = nivelDificuldade;
     }
 

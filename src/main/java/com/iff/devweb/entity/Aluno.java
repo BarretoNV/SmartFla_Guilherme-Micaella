@@ -1,6 +1,9 @@
 package com.iff.devweb.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Pattern;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -10,6 +13,8 @@ import java.time.LocalDateTime;
 @DiscriminatorValue("1")
 public class Aluno extends Usuario implements Serializable {
 
+    @PastOrPresent
+    @NotNull(message = "Campo obrigatório")
     @Column
     private LocalDate dataMatricula;
 
