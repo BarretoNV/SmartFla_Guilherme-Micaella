@@ -2,6 +2,10 @@ package com.iff.devweb.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Pattern;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -19,21 +23,27 @@ public class Usuario implements Serializable {
     private Long id;
 
     @Column(nullable = false)
+    @Pattern(regexp = "^[\\p{L}\\p{N}\\p{P}\\p{Zs}\\p{M}]{1,45}$", message = "Caracteres inválidos ou limite excedido!")
     private String nome;
 
     @Column(nullable = false)
+    @Email
     private String email;
 
     @Column(nullable = false)
+    @Past
     private LocalDate dataNasc;
 
     @Column(nullable = false)
+    @Pattern(regexp = "\\(\\d{2}\\) \\d{4,5}-\\d{4}", message = "O número de telefone deve seguir o formato (XX) XXXXX-XXXX ou (XX) XXXX-XXXX")
     private String tel;
 
     @Column(nullable = false)
+    @Pattern(regexp = "^[\\p{L}\\p{N}\\p{P}\\p{Zs}\\p{M}]{1,250}$", message = "Caracteres inválidos ou limite excedido!")
     private String endereco;
 
     @Column(nullable = false)
+    @PastOrPresent
     private LocalDateTime dataCadastro;
 
     public Usuario(){}

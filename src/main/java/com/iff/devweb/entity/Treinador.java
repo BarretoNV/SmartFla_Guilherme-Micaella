@@ -1,6 +1,8 @@
 package com.iff.devweb.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -11,12 +13,15 @@ import java.util.List;
 @DiscriminatorValue("2")
 public class Treinador extends Usuario implements Serializable {
 
+    @NotBlank(message = "Campo obrigatório")
     @Column
     private String especialidade;
 
+    @NotBlank(message = "Campo obrigatório")
     @Column
     private String registroProf;
 
+    @PastOrPresent(message = "Adicione uma data que já ocorreu")
     @Column
     private LocalDate dataContratacao;
 
