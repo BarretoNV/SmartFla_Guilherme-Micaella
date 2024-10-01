@@ -27,7 +27,7 @@ public class Treino implements Serializable {
     private String descricao;
 
     @Column(nullable = false)
-    @Pattern(regexp = "^(0[0-7]|08):([0-5][0-9])$", message = "O limite máximo é de 8 horas")
+    // @Pattern(regexp = "^(0[0-7]|08):([0-5][0-9])$", message = "O limite máximo é de 8 horas")
     private String duracao;
 
     @Column(nullable = false)
