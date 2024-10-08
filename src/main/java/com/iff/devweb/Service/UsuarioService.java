@@ -5,6 +5,7 @@ import com.iff.devweb.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,6 +24,11 @@ public class UsuarioService {
 
     public Usuario salvarUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
+    }
+
+    // Método para listar todos os usuários
+    public List<Usuario> listarTodosUsuarios() {
+        return usuarioRepository.findAll();
     }
 
     public void deletarUsuario(Long id) {
