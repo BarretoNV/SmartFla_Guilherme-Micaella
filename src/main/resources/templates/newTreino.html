@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Treino</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>Adicionar Treino</h1>
+<form action="/view/treinos" method="post">
+    <label for="nomeTreino">Nome do Treino:</label>
+    <input type="text" id="nomeTreino" name="nomeTreino" required>
+
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao" required></textarea>
+
+    <label for="duracao">Duração:</label>
+    <input type="text" id="duracao" name="duracao" required>
+
+    <label for="data">Data:</label>
+    <input type="date" id="data" name="data" required>
+
+    <label for="horario">Horário:</label>
+    <input type="time" id="horario" name="horario" required>
+
+    <button type="submit">Salvar Treino</button>
+</form>
+</body>
+</html>
