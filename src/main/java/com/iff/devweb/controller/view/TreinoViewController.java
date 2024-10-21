@@ -14,38 +14,37 @@ public class TreinoViewController {
     @Autowired
     private TreinoService treinoService;
 
-    // Método para mostrar todos os treinos
+    // Método para listar todos os treinos
     @GetMapping
-    public String showAllTreinos(Model model) {
+    public String showTreinos(Model model) {
         model.addAttribute("treinos", treinoService.listarTodosTreinos());
-        return "treinosList";  // Nome do arquivo HTML para listar os treinos
+        return "listarTreinos";
     }
 
-    // Método para mostrar o formulário de adição de novo treino
-    @GetMapping("/new")
+    // Método para exibir o formulário de novo treino
+    @GetMapping("/novo")
     public String showNewTreinoForm(Model model) {
         model.addAttribute("treino", new Treino());
-        return "newTreino";  // Nome do arquivo HTML do formulário para novos treinos
+        return "novoTreino";
     }
 
     // Método para salvar um novo treino
     @PostMapping
     public String saveTreino(@ModelAttribute Treino treino) {
         treinoService.salvarTreino(treino);
-        return "redirect:/view/treinos";  // Redireciona para a lista de treinos após salvar
+        return "redirect:/view/treinos";
     }
 
-    // Método para mostrar o formulário de edição de treino existente
-    @GetMapping("/edit/{id}")
+    // Método para exibir o formulário de edição de treino
+    @GetMapping("/editar/{id}")
     public String showEditTreinoForm(@PathVariable Long id, Model model) {
-        Treino treino = treinoService.buscarPorId(id)
-                .orElseThrow(() -> new IllegalArgumentException("ID de treino inválido: " + id));
+        Treino treino = treinoService.buscarPorId(id).orElseThrow(() -> new IllegalArgumentException("ID inválido:" + id));
         model.addAttribute("treino", treino);
-        return "editTreino";
+        return "editarTreino";
     }
 
-    // Método para atualizar um treino existente
-    @PostMapping("/update/{id}")
+    // Método para atualizar um treino
+    @PostMapping("/editar/{id}")
     public String updateTreino(@PathVariable Long id, @ModelAttribute Treino treino) {
         treino.setId(id);
         treinoService.salvarTreino(treino);
@@ -53,7 +52,7 @@ public class TreinoViewController {
     }
 
     // Método para deletar um treino
-    @GetMapping("/delete/{id}")
+    @GetMapping("/deletar/{id}")
     public String deleteTreino(@PathVariable Long id) {
         treinoService.deletarTreino(id);
         return "redirect:/view/treinos";

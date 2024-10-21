@@ -1,4 +1,165 @@
-.title{
-    background-color: red;
-    color: black;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    margin: 0;
+    padding: 20px;
 }
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.page-title {
+    color: #D91E18;
+    text-align: center;
+}
+
+.treino-list {
+    margin-top: 20px;
+}
+
+.treino-item {
+    border: 1px solid #303030;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.treino-title {
+    color: #D91E18;
+}
+
+.treino-descricao {
+    font-size: 14px;
+}
+
+.treino-actions a {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.btn-edit {
+    background-color: #D91E18; /* Vermelho */
+}
+
+.btn-delete {
+    background-color: #303030; /* Preto */
+}
+
+.btn-primary {
+    display: block;
+    width: 200px;
+    text-align: center;
+    background-color: #D91E18; /* Vermelho */
+    color: white;
+    padding: 10px;
+    margin: 20px auto;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.form-novo-treino {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #303030;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-novo-treino h1 {
+    color: #D91E18;
+    text-align: center;
+}
+
+.form-novo-treino label {
+    display: block;
+    margin-top: 10px;
+    color: #333;
+}
+
+.form-novo-treino input[type="text"],
+.form-novo-treino input[type="date"],
+.form-novo-treino input[type="time"],
+.form-novo-treino select,
+.form-novo-treino textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #303030;
+    border-radius: 4px;
+}
+
+.form-novo-treino textarea {
+    height: 100px;
+    resize: none;
+}
+
+.form-novo-treino button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #D91E18;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-novo-treino button:hover {
+    background-color: #A80000;
+}
+
+.aluno-list {
+    margin-top: 20px;
+}
+
+.aluno-item {
+    border: 1px solid #303030;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.aluno-title {
+    color: #D91E18;
+}
+
+.aluno-info {
+    font-size: 14px;
+}
+
+.aluno-actions a {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.btn-edit {
+    background-color: #4CAF50; /* Green */
+}
+
+.btn-delete {
+    background-color: #f44336; /* Red */
+}
+
+.btn-primary {
+    display: block;
+    width: 200px;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    margin: 20px auto;
+    text-decoration: none;
+    border-radius: 5px;
+}
+

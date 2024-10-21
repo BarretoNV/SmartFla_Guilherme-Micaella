@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Treinadores</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1 class="page-title">Treinadores</h1>
+<div class="container">
+    <div th:each="treinador : ${treinadores}" class="treino-item">
+        <h2 class="treino-title" th:text="${treinador.nome}">Nome do Treinador</h2>
+        <p class="treino-descricao" th:text="${treinador.especialidade}">Especialidade</p>
+        <p class="treino-descricao" th:text="${'Registro Profissional: ' + treinador.registroProf}">Registro Profissional</p>
+        <p class="treino-descricao" th:text="${'Data de Contratação: ' + treinador.dataContratacao}">Data de Contratação</p>
+        <div class="treino-actions">
+            <a class="btn-edit" th:href="@{'/view/treinadores/editar/' + ${treinador.id}}">Editar</a>
+            <a class="btn-delete" th:href="@{'/view/treinadores/deletar/' + ${treinador.id}}">Deletar</a>
+        </div>
+    </div>
+    <a class="btn-primary" href="/view/treinadores/novo">Adicionar Novo Treinador</a>
+</div>
+</body>
+</html>

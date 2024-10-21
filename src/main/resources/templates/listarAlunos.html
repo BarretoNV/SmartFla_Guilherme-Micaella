@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Alunos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1 class="page-title">Alunos</h1>
+<div class="container">
+    <div th:each="aluno : ${alunos}" class="aluno-item">
+        <h2 class="aluno-title" th:text="${aluno.nome}">Nome do Aluno</h2>
+        <p class="aluno-info" th:text="${aluno.email}">Email do Aluno</p>
+        <p class="aluno-info" th:text="${'Matriculado em: ' + aluno.dataMatricula}">Data de Matrícula</p>
+        <div class="aluno-actions">
+            <a class="btn-edit" th:href="@{'/view/alunos/editar/' + ${aluno.id}}">Editar</a>
+            <a class="btn-delete" th:href="@{'/view/alunos/deletar/' + ${aluno.id}}">Deletar</a>
+        </div>
+    </div>
+    <a class="btn-primary" href="/view/alunos/novo">Adicionar Novo Aluno</a>
+</div>
+</body>
+</html>
