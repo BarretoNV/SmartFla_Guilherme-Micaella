@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Component
 public class Runner implements CommandLineRunner {
@@ -32,7 +33,7 @@ public class Runner implements CommandLineRunner {
                 "Treino intenso de força para musculação",
                 "08:30", // Duracao que extrapola o limite de 8 horas
                 LocalDate.now(),
-                LocalDate.now(),
+                LocalTime.now(),
                 CdTipoTreinoEnum.Forca,
                 CdNivelDificuldadeEnum.Avancado,
                 "Treino com alta carga",
@@ -57,7 +58,7 @@ public class Runner implements CommandLineRunner {
                 "Treino voltado para resistência cardiovascular",
                 "04:25", // Duração dentro do limite
                 LocalDate.now(),
-                LocalDate.now(),
+                LocalTime.now(),
                 CdTipoTreinoEnum.Resistencia,
                 CdNivelDificuldadeEnum.Intermediario,
                 "Treino com foco em resistência",
