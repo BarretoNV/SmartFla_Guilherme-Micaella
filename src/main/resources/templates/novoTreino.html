@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Treino</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="form-novo-treino">
+    <h1>Novo Treino</h1>
+    <form th:action="@{/view/treinos}" method="post">
+        <label for="nomeTreino">Nome do Treino:</label>
+        <input type="text" id="nomeTreino" name="nomeTreino" required>
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" required></textarea>
+
+        <label for="duracao">Duração:</label>
+        <input type="text" id="duracao" name="duracao" required>
+
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required>
+
+        <label for="horario">Horário:</label>
+        <input type="time" id="horario" name="horario" required>
+
+        <label for="tipoTreino">Tipo de Treino:</label>
+        <select id="tipoTreino" name="tipoTreino" required>
+            <option value="Forca">Forca</option>
+            <option value="Aerobico">Aerobico</option>
+            <option value="Funcional">Funcional</option>
+            <!-- Adicione mais opções conforme necessário -->
+        </select>
+
+        <label for="nivelDificuldade">Nível de Dificuldade:</label>
+        <select id="nivelDificuldade" name="nivelDificuldade" required>
+            <option value="Facil">Facil</option>
+            <option value="Intermediario">Intermediario</option>
+            <option value="Avancado">Avancado</option>
+        </select>
+
+        <label for="observacoes">Observações:</label>
+        <textarea id="observacoes" name="observacoes"></textarea>
+
+        <label for="feedbackTreinador">Feedback do Treinador:</label>
+        <textarea id="feedbackTreinador" name="feedbackTreinador"></textarea>
+
+        <label for="feedbackAluno">Feedback do Aluno:</label>
+        <textarea id="feedbackAluno" name="feedbackAluno"></textarea>
+
+        <button type="submit">Salvar</button>
+    </form>
+</div>
+</body>
+</html>

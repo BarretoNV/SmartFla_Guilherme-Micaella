@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Treinos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="page-title">Treinos</h1>
+    <div class="treino-list">
+        <div th:each="treino : ${treinos}" class="treino-item">
+            <h2 th:text="${treino.nomeTreino}" class="treino-title"></h2>
+            <p th:text="${treino.descricao}" class="treino-descricao"></p>
+            <div class="treino-actions">
+                <a th:href="@{'/view/treinos/editar/' + ${treino.id}}" class="btn btn-edit">Editar</a>
+                <a th:href="@{'/view/treinos/deletar/' + ${treino.id}}" class="btn btn-delete">Deletar</a>
+            </div>
+        </div>
+    </div>
+    <a href="/view/treinos/novo" class="btn btn-primary">Adicionar Novo Treino</a>
+</div>
+</body>
+</html>

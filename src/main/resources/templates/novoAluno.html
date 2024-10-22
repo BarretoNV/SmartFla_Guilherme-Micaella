@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Aluno</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1 class="page-title">Adicionar Novo Aluno</h1>
+<form class="form-novo-treino" th:action="@{/view/alunos/salvar}" method="post">
+    <label for="nome">Nome do Aluno:</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="dataNasc">Data de Nascimento:</label>
+    <input type="date" id="dataNasc" name="dataNasc" required>
+
+    <label for="tel">Telefone:</label>
+    <input type="text" id="tel" name="tel" required>
+
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" name="endereco" required>
+
+    <label for="dataMatricula">Data de Matrícula:</label>
+    <input type="date" id="dataMatricula" name="dataMatricula" required>
+
+    <label for="treinador">Treinador:</label>
+    <select id="treinador" name="treinador">
+        <!-- Os valores do treinador devem ser preenchidos pelo servidor -->
+        <option value="">Selecione um treinador</option>
+    </select>
+
+    <label for="treino">Treino:</label>
+    <select id="treino" name="treino">
+        <!-- Os valores de treino devem ser preenchidos pelo servidor -->
+        <option value="">Selecione um treino</option>
+        <option th:each="treino : ${todosTreinos}" th:value="${treino.id}" th:text="${treino.nomeTreino}"></option>
+    </select>
+
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>

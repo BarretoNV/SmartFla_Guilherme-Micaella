@@ -51,4 +51,12 @@ public class Aluno extends Usuario implements Serializable {
     public void setTreinador(Treinador treinador) {
         this.treinador = treinador;
     }
+
+    public Treino getTreino() {
+        return treino;
+    }
+
+    public void setTreino(Treino treino) {
+        this.treino = treino;
+    }
 }
