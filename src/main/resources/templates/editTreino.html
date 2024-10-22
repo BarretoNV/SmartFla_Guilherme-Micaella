@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Treino</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>Editar Treino</h1>
+<form th:action="@{'/view/treinos/update/' + ${treino.id}}" method="post">
+    <input type="hidden" name="id" th:value="${treino.id}">
+
+    <label for="nomeTreino">Nome do Treino:</label>
+    <input type="text" id="nomeTreino" name="nomeTreino" th:value="${treino.nomeTreino}" required>
+
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao" th:value="${treino.descricao}" required></textarea>
+
+    <label for="duracao">Duração:</label>
+    <input type="text" id="duracao" name="duracao" th:value="${treino.duracao}" required>
+
+    <label for="data">Data:</label>
+    <input type="date" id="data" name="data" th:value="${treino.data}" required>
+
+    <label for="horario">Horário:</label>
+    <input type="time" id="horario" name="horario" th:value="${treino.horario}" required>
+
+    <button type="submit">Atualizar Treino</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Treinos</title>
+</head>
+<body>
+<h1>Lista de Treinos</h1>
+<a href="/view/treinos/new">Adicionar Novo Treino</a>
+<ul>
+    <th:block th:each="treino : ${treinos}">
+        <li>
+            <span th:text="${treino.nomeTreino}">Nome do Treino</span> -
+            <a th:href="@{/view/treinos/edit/{id}(id=${treino.id})}">Editar</a>
+            <a th:href="@{/view/treinos/delete/{id}(id=${treino.id})}" onclick="return confirm('Are you sure?')">Deletar</a>
+        </li>
+    </th:block>
+</ul>
+</body>
+</html>

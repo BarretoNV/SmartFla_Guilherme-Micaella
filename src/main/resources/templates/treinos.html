@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Treino</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>Detalhes do Treino</h1>
+<div th:each="treino : ${treinos}">
+    <h2 th:text="${treino.nomeTreino}">Nome do Treino</h2>
+    <p th:text="${treino.descricao}">Descrição</p>
+    <p th:text="${'Duração: ' + treino.duracao}">Duração</p>
+    <p th:text="${'Data: ' + treino.data}">Data</p>
+    <p th:text="${'Horário: ' + treino.horario}">Horário</p>
+    <div>
+        <a th:href="@{'/treinos/edit/' + ${treino.id}}" th:text="'Editar ' + ${treino.nomeTreino}">Editar</a>
+        <a th:href="@{'/treinos/delete/' + ${treino.id}}" th:text="'Deletar ' + ${treino.nomeTreino}">Deletar</a>
+    </div>
+</div>
+</body>
+</html>
