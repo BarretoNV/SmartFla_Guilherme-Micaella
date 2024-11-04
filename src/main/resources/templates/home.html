@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Home - Sistema de Gerenciamento de Treinos</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <div class="title">
-    <h1>Página em construção</h1>
-  </div>
+<div class="container">
+    <h1 class="page-title">Sistema SmartFla v.Alfa</h1>
+    <div class="links">
+        <a th:href="@{/view/alunos}" class="btn-primary">Gerenciar Alunos</a>
+        <a th:href="@{/view/treinadores}" class="btn-primary">Gerenciar Treinadores</a>
+        <a th:href="@{/view/treinos}" class="btn-primary">Gerenciar Treinos</a>
+    </div>
+</div>
 </body>
 </html>

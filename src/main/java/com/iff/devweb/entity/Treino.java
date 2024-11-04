@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -34,7 +35,7 @@ public class Treino implements Serializable {
     private LocalDate data;
 
     @Column(nullable = false)
-    private LocalDate horario;
+    private LocalTime horario;
 
     @Column(nullable = false)
     private CdTipoTreinoEnum tipoTreino;
@@ -59,7 +60,7 @@ public class Treino implements Serializable {
 
     public Treino () {}
 
-    public Treino(Long id, String nomeTreino, String descricao, String duracao, LocalDate data, LocalDate horario, CdTipoTreinoEnum tipoTreino, CdNivelDificuldadeEnum nivelDificuldade, String observacoes, String feedbackTreinador, String feedbackAluno, List<Aluno> alunos) {
+    public Treino(Long id, String nomeTreino, String descricao, String duracao, LocalDate data, LocalTime horario, CdTipoTreinoEnum tipoTreino, CdNivelDificuldadeEnum nivelDificuldade, String observacoes, String feedbackTreinador, String feedbackAluno, List<Aluno> alunos) {
         this.id = id;
         this.nomeTreino = nomeTreino;
         this.descricao = descricao;
@@ -114,11 +115,11 @@ public class Treino implements Serializable {
         this.data = data;
     }
 
-    public LocalDate getHorario() {
+    public LocalTime getHorario() {
         return horario;
     }
 
-    public void setHorario(LocalDate horario) {
+    public void setHorario(LocalTime horario) {
         this.horario = horario;
     }
 
